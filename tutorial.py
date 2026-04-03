@@ -10,7 +10,16 @@ olympic = pd.read_parquet("./data/results.parquet")
 coffee.loc[0, "Day"]
 coffee.iloc[0, [0, 1]]
 
+# Faster than loc, but usually for single values
+coffee.at[0, "Day"]
+
 # Reassign Index / Primary Key with a Specific Column
 coffee.index = coffee["Day"]
 coffee.loc["Monday"]
+
+coffee.sort_values(["Units Sold"])
 print(coffee)
+
+# Iterate through rows
+for row, value in coffee.iterrows():
+    print(value)
