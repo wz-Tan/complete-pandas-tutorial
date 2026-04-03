@@ -16,3 +16,11 @@ merged_data.head()
 # Renaming Columns
 merged_data.rename(columns={"NOC_x": "born_country_full"}, inplace=True)
 merged_data[["born_country_full", "born_country"]]
+
+# Getting Players from USA and Britain
+usa = bios[bios["born_country"] == "USA"]
+gbr = bios[bios["born_country"] == "GBR"]
+
+# Combine Them
+usa_gbr = pd.concat([usa, gbr])
+usa_gbr
